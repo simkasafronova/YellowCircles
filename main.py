@@ -1,17 +1,18 @@
 import sys
 
 from PyQt5.QtGui import QPainter, QColor
-from PyQt5 import uic
 from PyQt5.QtWidgets import QApplication, QMainWindow, QWidget
+from UI import Ui_MainWindow
 from random import randrange, choice
 
-COLORS = [(194, 50, 37), (245, 130, 7), (247, 223, 5)]
+COLORS = [(194, 50, 37), (245, 130, 7), (247, 223, 5), (67, 191, 10),
+          (33, 150, 49), (55, 204, 154), (31, 81, 181), (98, 23, 163)]
 
 
-class MyWidget(QMainWindow):
+class MyWidget(QMainWindow, Ui_MainWindow):
     def __init__(self):
         super().__init__()
-        uic.loadUi('UI.ui', self)
+        self.setupUi(self)
         self.pushButton.clicked.connect(self.start_drawing)
         self.paint_flag = False
 
